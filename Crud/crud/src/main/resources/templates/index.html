@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>CRUD</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div align="center">
+    <h1>User List</h1>
+    <a href="new" class="btn btn-success btn-flat">Add User
+        <span class="glyphicon glyphicon-person"></span> 
+    </a>
+    <br/><br/>
+    <table border="0"class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Sur Name</th>
+                <th>Phone No.</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+            	<td th:text="${user.id}">ID</td>
+                <td th:text="${user.firstName}">First Name</td>
+                <td th:text="${user.lastName}">Last Name</td>
+                <td th:text="${user.surName}">Sur Name</td>
+                <td th:text="${user.phoneNo}">Phone No.</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${user.id}}" class="btn btn-flat btn-info">
+                        <span class="glyphicon glyphicon-pencil"></span> 
+                    </a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${user.id}}" class="btn btn-flat btn-danger"> 
+                        <span class="glyphicon glyphicon-remove"></span> 
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>
