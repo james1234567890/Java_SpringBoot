@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UserController {
 
-	@Autowired
+	@Autowired@Autowired
 	private UserService service; 
 	
 	@RequestMapping("/")
